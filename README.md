@@ -46,6 +46,7 @@ This node allows for a simpler use of the services at the user's disposal. Just 
 - "p" (plus): increases the speed of the robot by 25%
 - "m" (minus): decreases the speed of the robot by 25%
 - "r" (reset): resets the robot to its original position
+- "q" (quit): quits the user interface node
 
 
 ## flowchart of the code
