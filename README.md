@@ -104,4 +104,4 @@ This node allows for a simpler use of the services at the user's disposal. Just 
 ```
 
 ## Possible improvments
-For now, the sharp turn at the beginning of the loop is difficult to drive through when increasing the speed above the initial value. To be able to handle faster speeds, I would need to publish corrections at a higher frequency. I should also investigate further the reason why I had to create a "quit" option to stop the node (ctrl+C does kill the program).
+For now, the sharp turn at the beginning of the loop is difficult to drive through when increasing the speed above the initial value. To be able to handle faster speeds, I would need to publish corrections at a higher frequency. I should also investigate further the reason why I had to create a "quit" option to stop the node (ctrl+C does not kill the program).
