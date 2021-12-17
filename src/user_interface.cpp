@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     // monitoring of the imputs as long as ros is running correctly      
     while(ros::ok()){
         //getting input
-        ROS_INFO("Press r to reset the position, p to increase the speed and m for decrease it");    
+        ROS_INFO("Press r to reset the position, p to increase the speed, m to decrease it and q to quit");    
         std::cin >> input;
 
         //We have three cases, other keys are considered as invalid
@@ -62,6 +62,9 @@ int main(int argc, char **argv)
                 ROS_ERROR("Failed to call service decrease_speed");
                 return 1;            
             }
+        case 'q':
+			ROS_INFO("recieved request to quit the user interface");
+			return 0;
 
         default:
             ROS_INFO("Please press one of admissible keys");

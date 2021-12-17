@@ -17,6 +17,7 @@ bool increase_speed(std_srvs::Empty::Request  &req, std_srvs::Empty::Response &r
    
     //augmentation of 25%
     current_speed = current_speed*1.25;
+    ROS_INFO("new speed is %f: ", current_speed);
     return true;        
 }
 
@@ -26,6 +27,7 @@ bool decrease_speed(std_srvs::Empty::Request  &req, std_srvs::Empty::Response &r
     
     //reduction of 25%
     current_speed = current_speed*0.75;
+    ROS_INFO("new speed is %f: ", current_speed);
     return true;
     
 }
@@ -36,19 +38,21 @@ float angular_vel(float front, float f_lft, float f_rgt){
     float ang_vel =0;
 
     // If are no longer at a safe distance from the walls
-    if (f_lft < safe_dist or front< safe_dist or f_rgt < safe_dist){
+    if (f_lft < safe_dist or f_rgt < safe_dist or front<safe_dist){
         if (f_lft < front and f_lft < f_rgt)
-            ang_vel = -1.0;
+            ang_vel = 1.0*current_speed;
         else if (f_rgt < front and f_rgt < f_lft)
-            ang_vel = 1.0;
-        else{
+            ang_vel = -1.0*current_speed;
+    
+		else{
             // In this case, we are facing the obstacle, we need a sharper turn
-            if (f_lft < f_rgt)
-                ang_vel = -2.0;
-            else
-                ang_vel = 2.0;
+			if (f_lft < f_rgt)
+				ang_vel = 1.5*current_speed;
+			else
+				ang_vel = -1.5*current_speed;
         }
     }
+    
     return(ang_vel);
 }
 

@@ -12,8 +12,8 @@ You should then run the different nodes using
 ```Shell
 roscore
 rosrun stage_ros stageros $(rospack find rta2_controller)/world/my_world.world
-rosrun second_assignment controller_node
-rosrun second_assignment user_interface_node
+rosrun rta2_controller controller_node
+rosrun rta2_controller user_interface_node
 ```
 
 Once the system is running, the user can interact with the simulation using the following services of type std_srvs/Empty:
@@ -21,6 +21,10 @@ Once the system is running, the user can interact with the simulation using the 
 - /decrease_speed : decreases the speed of the robot by 25%
 - /reset_positions : deplaces the robot back to its original position
 
+Services can be accessed using :
+```Shell
+rosservice call <nameOfService>
+```
 The user interface also allows the same functionalities with quicker commands.
 
 ## Nodes
